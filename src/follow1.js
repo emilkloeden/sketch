@@ -1,4 +1,6 @@
 const p5 = require("p5");
+
+// http://p5js.org/examples/interaction-follow-1.html
 const sketch = p => {
   p.x = 100;
   p.y = 100;
@@ -12,12 +14,13 @@ const sketch = p => {
   };
 
   p.draw = () => {
-    const a = p.createVector(100, 100, -10, -10);
-
     p.background(0);
     p.dx = p.mouseX - p.x;
-    p.dy = p.mousey - p.y;
+    p.dy = p.mouseY - p.y;
     p.angle1 = p.atan2(p.dy, p.dx);
+
+    p.x = p.mouseX - p.cos(p.angle1) * p.segLength;
+    p.y = p.mouseY - p.sin(p.angle1) * p.segLength;
 
     p.segment(p.x, p.y, p.angle1);
     p.ellipse(p.x, p.y, 20, 20);

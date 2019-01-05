@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import p5 from "p5";
 
-class Wrapper extends Component {
+class Sketch extends Component {
   constructor(props) {
     super(props);
     this.ref = React.createRef();
@@ -11,13 +11,8 @@ class Wrapper extends Component {
     this.sketch = new p5(this.props.children, this.ref.current);
   }
   render() {
-    return (
-      <>
-        <p>Hello</p>
-        <div ref={this.ref} />
-      </>
-    );
+    return <div ref={this.ref} />;
   }
 }
 
-export default Wrapper;
+export default Sketch;
