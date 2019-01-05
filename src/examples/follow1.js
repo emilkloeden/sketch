@@ -1,5 +1,3 @@
-const p5 = require("p5");
-
 // http://p5js.org/examples/interaction-follow-1.html
 const sketch = p => {
   p.x = 100;
