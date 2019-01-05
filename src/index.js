@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
-import Sketch from "./Sketch";
+import Sketch from "./SketchHooks";
 import follow1 from "./examples/follow1";
 import gameOfLife from "./examples/gameOfLife";
 
