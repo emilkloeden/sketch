@@ -7,6 +7,7 @@ const useSketch = ({ children }) => {
   useEffect(() => {
     new p5(children, ref.current);
   }, []);
+
   return <div ref={ref} />;
 };
 

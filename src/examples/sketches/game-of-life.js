@@ -1,10 +1,10 @@
 // http://p5js.org/examples/simulate-game-of-life.html
 const sketch = p => {
-  p.w;
-  p.columns;
-  p.rows;
-  p.board;
-  p.next;
+  // p.w;
+  // p.columns;
+  // p.rows;
+  // p.board;
+  // p.next;
 
   p.setup = () => {
     p.createCanvas(720, 400);
@@ -30,7 +30,7 @@ const sketch = p => {
     p.generate();
     for (var i = 0; i < p.columns; i++) {
       for (var j = 0; j < p.rows; j++) {
-        if (p.board[i][j] == 1) p.fill(0);
+        if (p.board[i][j] === 1) p.fill(0);
         else p.fill(255);
         p.stroke(0);
         p.rect(i * p.w, j * p.w, p.w - 1, p.w - 1);
@@ -48,7 +48,7 @@ const sketch = p => {
     for (var i = 0; i < p.columns; i++) {
       for (var j = 0; j < p.rows; j++) {
         // Lining the edges with 0s
-        if (i == 0 || j == 0 || i == p.columns - 1 || j == p.rows - 1)
+        if (i === 0 || j === 0 || i === p.columns - 1 || j === p.rows - 1)
           p.board[i][j] = 0;
         // Filling the rest randomly
         else p.board[i][j] = p.floor(p.random(2));
@@ -74,11 +74,11 @@ const sketch = p => {
         // we added it in the above loop
         neighbors -= p.board[x][y];
         // Rules of Life
-        if (p.board[x][y] == 1 && neighbors < 2) p.next[x][y] = 0;
+        if (p.board[x][y] === 1 && neighbors < 2) p.next[x][y] = 0;
         // Loneliness
-        else if (p.board[x][y] == 1 && neighbors > 3) p.next[x][y] = 0;
+        else if (p.board[x][y] === 1 && neighbors > 3) p.next[x][y] = 0;
         // Overpopulation
-        else if (p.board[x][y] == 0 && neighbors == 3) p.next[x][y] = 1;
+        else if (p.board[x][y] === 0 && neighbors === 3) p.next[x][y] = 1;
         // Reproduction
         else p.next[x][y] = p.board[x][y]; // Stasis
       }
